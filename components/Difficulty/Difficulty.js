@@ -1,6 +1,5 @@
 import React, { useState, useContext } from "react";
 import { View, StyleSheet } from "react-native";
-import { RadioButton, Text } from 'react-native-paper';
 import SwitchSelector from "react-native-switch-selector";
 import { SettingsContext } from '../../context/SettingsContext';
 
@@ -20,7 +19,9 @@ const Difficulty = () => {
                 initial={0}
                 onPress={value => setDifficulty(value)}
                 hasPadding
-                options={options}                
+                height={52}
+                borderRadius={25}
+                options={options}
             />
         </View>
     );
@@ -28,8 +29,9 @@ const Difficulty = () => {
 
 const styles = StyleSheet.create({
     container: {
-        marginTop: 70,
-        alignItems: "center"
+        alignItems: "center",
+        margin: 10,
+        marginTop: 30,
     }
 });
 export default Difficulty

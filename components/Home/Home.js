@@ -1,24 +1,21 @@
 import React, { Component } from 'react';
-import { View, SafeAreaView, StyleSheet } from 'react-native';
+import { View, StyleSheet } from 'react-native';
 import Difficulty from '../Difficulty';
+import Category from '../Category';
 import AppHeader from '../Header/Header';
 
 const Home = () => {
     return (
-        <View>
-            <View style={{}}>
-                <AppHeader />
-            </View>
-            <View style={{}}>
-                <Difficulty />
-            </View>
-        </View>
+        <>
+            <AppHeader />
+            <Difficulty />
+            <Category />
+        </>
     );
 }
 const styles = StyleSheet.create({
     container: {
-        marginTop: 20,
-        backgroundColor: '#47594c',
+        backgroundColor: '#566551'
     }
 })
 export default Home
