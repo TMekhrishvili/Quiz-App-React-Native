@@ -1,9 +1,8 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import SlideShow from './components/SlideShow';
-import Home from './components/Home';
-import { SettingsProvider } from './context/SettingsContext';
+import Home from './src/components/Home';
+import { SettingsProvider } from './src/context/SettingsContext';
 
 export default function App() {
   return (
@@ -18,6 +17,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#c1dbc7'
+    backgroundColor: '#bdfffb',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
