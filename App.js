@@ -1,24 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import Home from './src/components/Home';
 import { SettingsProvider } from './src/context/SettingsContext';
+import Home from './src/components/Home';
+import Settings from './src/components/Settings/Settings';
+import Questions from './src/components/Questions/Questions';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <SettingsProvider>
-      <View style={styles.container}>
-        <Home />
-      </View>
+      <NavigationContainer>
+        <Stack.Navigator>
+          <Stack.Screen name="Home" component={Home} />
+          <Stack.Screen name="Quiz" component={Questions} />
+        </Stack.Navigator>
+      </NavigationContainer>
     </SettingsProvider>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#bdfffb',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App

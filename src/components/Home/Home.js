@@ -1,10 +1,11 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
+import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
 import Settings from '../Settings/Settings';
-
-const Home = () => {
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+const Home = ({ navigation }) => {
     return (
-        <View style={StyleSheet.container}>
+        <View style={styles.container}>
             <View style={styles.logoContainer}>
                 <Image
                     style={styles.logo}
@@ -16,24 +17,41 @@ const Home = () => {
             <View style={styles.formContainer}>
                 <Settings />
             </View>
+            <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Quiz')}>
+                <Text style={styles.buttonText}>Start Quiz</Text>
+            </TouchableOpacity>
         </View>
     );
 }
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#bdfffb',
+        alignItems: 'center',
+        justifyContent: 'center'
     },
     logoContainer: {
         alignItems: 'center',
         flexGrow: 1,
         justifyContent: 'center'
     },
-    formContainer: {
-
-    },
     logo: {
         width: 200,
         height: 200
+    },
+    buttonContainer: {
+        backgroundColor: '#000',
+        paddingVertical: 10,
+        fontWeight: 'bold',
+        height: 50,
+        justifyContent: 'center',
+        width: 310,
+        marginBottom: 10
+
+    },
+    buttonText: {
+        color: '#fff',
+        textAlign: 'center'
     }
 })
 export default Home
