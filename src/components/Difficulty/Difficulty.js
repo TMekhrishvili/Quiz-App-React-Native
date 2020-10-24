@@ -10,7 +10,7 @@ const options = [
 ];
 const Difficulty = () => {
     const { difficulty, setDifficulty } = useContext(SettingsContext);
-    handleChange = (value) => {
+    const handleChange = (value) => {
         value != null && setDifficulty(value)
     }
     return (

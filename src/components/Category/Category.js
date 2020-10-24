@@ -26,7 +26,7 @@ const options = [
 
 const Category = () => {
     const { category, setCategory } = useContext(SettingsContext);
-    handleChange = (value) => {
+    const handleChange = (value) => {
         value != null && setCategory(value);
     }
     return (
