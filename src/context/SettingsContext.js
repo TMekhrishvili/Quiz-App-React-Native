@@ -6,7 +6,7 @@ export const SettingsProvider = props => {
     const [score, setScore] = useState(0);
     const [category, setCategory] = useState(9);
     const [difficulty, setDifficulty] = useState("easy");
-
+    const [showCorrectAnswer, setShowCorrectAnswer] = useState(false);
     return <SettingsContext.Provider
         value={{
             score,
@@ -14,7 +14,9 @@ export const SettingsProvider = props => {
             category,
             setCategory,
             difficulty,
-            setDifficulty
+            setDifficulty,
+            showCorrectAnswer,
+            setShowCorrectAnswer
         }}>
         {props.children}
     </SettingsContext.Provider>;

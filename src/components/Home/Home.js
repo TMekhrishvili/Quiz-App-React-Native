@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, StyleSheet, Image, TouchableOpacity, Text } from 'react-native';
 import Settings from '../Settings/Settings';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { SettingsContext } from '../../context/SettingsContext';
+
 const Home = ({ navigation }) => {
+
+    useEffect(() => {
+        setScore(0)
+    }, [])
+    
+    const { score, setScore } = useContext(SettingsContext);
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -47,7 +53,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         width: 310,
         marginBottom: 10
-
     },
     buttonText: {
         color: '#fff',
