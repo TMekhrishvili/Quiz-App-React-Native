@@ -4,9 +4,10 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import { SettingsContext } from '../../context/SettingsContext';
 
 const Answer = ({ answer, correct, customStyle }) => {
-    const { score, setScore, setShowCorrectAnswer } = useContext(SettingsContext);
-
+    const { score, setScore, showCorrectAnswer, setShowCorrectAnswer } = useContext(SettingsContext);
+    let ans = answer;
     const handleClick = () => {
+        ans = null;
         setShowCorrectAnswer(true);
         if (answer === correct) {
             setScore(score + 1);
@@ -16,7 +17,7 @@ const Answer = ({ answer, correct, customStyle }) => {
     return (
         <View>
             <TouchableOpacity style={customStyle} onPress={handleClick}>
-                <Text>{answer}</Text>
+                <Text>{ans}</Text>
             </TouchableOpacity>
         </View>
     )

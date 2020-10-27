@@ -20,7 +20,7 @@ const Home = ({ navigation }) => {
                     }}
                 />
             </View>
-            <View style={styles.formContainer}>
+            <View>
                 <Settings />
             </View>
             <TouchableOpacity style={styles.buttonContainer} onPress={() => navigation.navigate('Quiz')}>

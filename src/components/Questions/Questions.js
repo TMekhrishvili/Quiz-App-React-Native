@@ -53,7 +53,7 @@ const Questions = ({ navigation }) => {
                                     const style = styles.showCorrect;
                                     const ifCorrect = value === questions[index].correct_answer;
                                     const styleAfterClick = ifCorrect ? { ...style, borderColor: '#34fa37' } : { ...style, borderColor: '#fa6534' }
-                                    const defaultStyle = { ...style, borderColor: '#80e9f2' }
+                                    const defaultStyle = { ...style, borderColor: '#98fad6' }
                                     // return
                                     return (
                                         <Answer
