@@ -1,5 +1,5 @@
 import React, { useEffect, useContext, useState } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image, Button } from 'react-native';
 import { SettingsContext } from '../../context/SettingsContext';
 import Question from './Question';
 import axios from 'axios';
@@ -17,7 +17,7 @@ const Questions = () => {
         axios.get(`https://opentdb.com/api.php?amount=10&category=${category}&difficulty=${difficulty}&type=multiple`)
             .then((response) => response.data && setQuestions(questions.concat(response.data.results)))
     }
-    
+
     const shuffle = array => {
         const answers = array.incorrect_answers;
         answers.push(array.correct_answer)
@@ -26,9 +26,23 @@ const Questions = () => {
     }
     return (
         <View style={styles.container}>
-            {questions.map((ans, i) => (
-                <Text key={i}>{ans.correct_answer}</Text>
-            ))}
+            {questions.length > 0 ? (
+                <View>
+                    <Text>{questions[index].question}</Text>
+                    {shuffle(questions[index]).map((ans, i) => (
+                        <Text key={i}>{ans}</Text>
+                    ))}
+                    <Button onPress={() => { setIndex(index + 1) }} title="continue" />
+                </View>
+            ) : (
+                    <Image
+                        style={styles.loaderImage}
+                        source={{
+                            uri: 'https://www.hopatcongschools.org/lib/img/spinner.gif'
+                        }}
+                    />
+
+                )}
         </View>
     )
 }
@@ -38,6 +52,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#bdfffb',
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    loaderImage: {
+        width: 100,
+        height: 100
     }
 });
 export default Questions
