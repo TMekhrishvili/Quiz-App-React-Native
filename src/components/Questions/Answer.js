@@ -5,19 +5,18 @@ import { SettingsContext } from '../../context/SettingsContext';
 
 const Answer = ({ answer, correct, customStyle }) => {
     const { score, setScore, showCorrectAnswer, setShowCorrectAnswer } = useContext(SettingsContext);
-    let ans = answer;
+
     const handleClick = () => {
-        ans = null;
-        setShowCorrectAnswer(true);
-        if (answer === correct) {
+        if (answer === correct && !showCorrectAnswer) {
             setScore(score + 1);
         }
+        setShowCorrectAnswer(true);
     }
 
     return (
         <View>
             <TouchableOpacity style={customStyle} onPress={handleClick}>
-                <Text>{ans}</Text>
+                <Text>{answer}</Text>
             </TouchableOpacity>
         </View>
     )

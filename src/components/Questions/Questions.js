@@ -25,8 +25,10 @@ const Questions = ({ navigation }) => {
     }
     const shuffle = array => {
         const answers = array.incorrect_answers;
-        answers.push(array.correct_answer)
-        answers.sort(() => Math.random() - 0.5);
+        if (!showCorrectAnswer) {
+            answers.push(array.correct_answer)
+            answers.sort(() => Math.random() - 0.5);
+        }
         return answers;
     }
 
